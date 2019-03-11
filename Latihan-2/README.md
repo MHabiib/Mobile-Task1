@@ -6,7 +6,11 @@ Android Studio Version 3.3
 
 ## Contributor
 mhabibofficial@yahoo.com
+andriwinanda98@gmail.com
+harvinkhong123@gmail.com
 
 :heart: Regards:
 
 Muhammad Habib
+Andri Winanda
+Harvin Khong
