@@ -9,33 +9,44 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_second.*
 
 class SecondActivity : AppCompatActivity() {
-    var topping=""
+    var topping = " "
 
     fun onRadioButtonClicked(view: View) {
         var checked = view as RadioButton
         if (keju == checked)
-            topping=keju.text.toString()
-        else if(pepperoni==checked)
-            topping=pepperoni.text.toString()
-        else if(jamur==checked)
-            topping=jamur.text.toString()
+            topping = keju.text.toString()
+        else if (pepperoni == checked)
+            topping = pepperoni.text.toString()
+        else if (jamur == checked)
+            topping = jamur.text.toString()
         else
-            topping="Anda tidak memilih topping"
+            topping = "Anda tidak memilih topping"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        var nama=txtbox1.text.toString();
-        var harga=txtbox2.text.toString();
-        var topping=topping;
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        button_send.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+
+         fun onCreate(savedInstanceState: Bundle?) {
+
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_second)
+
+//            button_send.setOnClickListener({
+//                val intent = Intent(this, MainActivity::class.java)
+//                intent.putExtra("pizza", Pizza(nama, harga, topping))
+//                startActivity(intent)
+//            })
+
+        }
+        button_send.setOnClickListener({
+            var nama = txtbox1.text.toString();
+            var harga = txtbox2.text.toString();
+            var topping = topping;
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("pizza", Pizza(nama, harga, topping))
             startActivity(intent)
         })
-
-
     }
 }

@@ -7,17 +7,20 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val data = intent.extras
-        val pizza = data.getParcelable<Pizza>("pizza")
-
-        textView_stu.text = pizza.nama + " " + pizza.harga + " " + pizza.topping
-
-        button_buat.setOnClickListener(View.OnClickListener {
+        if (data == null){
+            textView_stu.text = " "
+        }
+        else {
+            val pizza = data.getParcelable<Pizza>("pizza")
+            textView_stu.text ="Nama Pizza -> " + pizza.nama+
+                    "Harga Pizza -> " + pizza.harga +
+                    "Topping : " + pizza.topping
+        }
+        button_buat.setOnClickListener({
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         })
